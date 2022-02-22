@@ -1,0 +1,121 @@
+<html>
+  <head>
+      <title>Sample Code to Trace</title>
+  </head>
+  <body> 
+      <h2>These functions are for you to trace as an exercise</h2>
+      <script type="text/javascript" >
+        function findMin(list)
+        {
+          if(typeof list == "undefined") return null;
+          minItem=list[0];
+          minPos=0;
+          for(pos in list)
+          {
+             if(myList[pos]<minItem) 
+               {
+                 minPos=pos;
+                 minItem=myList[pos];
+                } 
+              else {  //this code does nothing important
+                      //it is here so you can follow the else branch
+                      //while tracing execution
+                      whatDataTypeIs_i=typeof i;
+                      i=Math.sqrt(pos);
+                    } 
+
+           }
+            
+          return { 'position':minPos , 'value' : minItem }; //result is a JSON object
+         }
+    </script>
+
+   <script type="text/javascript" language="javascript">
+      function factorial(n)
+      {
+         if(n<=1) return 1;
+         result= n*factorial(n-1);
+         return result;
+       } 
+    </script>
+ 
+     
+    <script type=text/javascript>      
+      function removeVowels(string)
+      {
+        result='';
+        vowels='AEIOU';
+        for(i=0;i<string.length;i++)
+        {
+          letter=string.charAt(i);
+          switch(letter.toUpperCase()) 
+          {
+             case 'A':
+             case 'E':
+             case 'I':
+             case 'O':
+             case 'U':
+                   break;  //do nothing
+             case 'Y':  if(i==0) 
+                             result+=letter; //If Y is the first letter, its not a vowel
+                        else if('AEIOU'.indexOf(string.charAt(i-1).toUpperCase()) < 0)
+                                 doNothing=letter;  //do nothing  - the statement is here so you can trace it
+                                                    //if the previous letter is a vowel, y is used as a consonant
+                        else result+=letter;
+                   break;
+             default:  result+=letter;
+            }
+          }
+          return result;
+       } 
+      </script>
+      <input type="button" value="Find First Name"  
+                           onClick="
+                                    myList=['Bob','Andrew', 'Sam', 'Allen',
+                                            'Ralph', 'Adam', 'Kelly','Mark'];
+                                   
+                                    result=findMin(myList);
+                                    document.getElementById('pos').innerHTML=result.position;
+                                    document.getElementById('val').innerHTML=result.value;
+                                   " />
+       
+       
+                                     
+      <input type="button" value="Find Smallest Number"  
+                           onClick="
+                                    myList=[10,17,-3 , -2.1,  7, 9, 12, 0, 5]; 
+                                    result=findMin(myList);
+                                    document.getElementById('pos').innerHTML=result.position;
+                                    document.getElementById('val').innerHTML=result.value;
+                                   " />
+      <br>
+      <label>Position:</label>   <label class="RESULT" id=pos>Unknown</label><br>
+      <label>Value: </label>     <label class="RESULT" id=val>Unknown</label>
+
+      </textArea><br>
+
+
+
+      <h2>The functions below are used in class as examples to trace</h2>
+      <input type=text width=5 id='n' style="text-align:right" />
+      <label class='RESULT'  id='factorialResult'>Unknown</label>
+      <input type="button" value="Factorial!"
+                           onClick="
+                                    val=document.getElementById('n').value;
+                                    fact=factorial(val);
+                                    document.getElementById('factorialResult').innerHTML=fact;
+                                    "/>
+       <hr>
+
+      <input type=text size='60' id='sentence'  />
+
+      <label class='RESULT'  id='noVowels'>Unknown</label>
+      <input type="button" value="RemoveVowels"
+                           onClick="
+                                    val=document.getElementById('sentence').value;
+                                    codedSentence=removeVowels(val);
+                                    document.getElementById('noVowels').innerHTML=codedSentence;
+                                    "/>
+
+  </body>
+</html>
