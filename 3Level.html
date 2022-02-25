@@ -1,0 +1,24 @@
+
+<html>
+  <head><title>Examining CSS</title>
+      <link rel="stylesheet" type="text/css"  href="3Level.css" />
+      <style>
+          .Main {color:blue;margin-left:10% }
+      </style>
+ </head>
+  <body> 
+     <h3 id=myHeading class=Main  style="color:green" >Looking at the CSS of this Heading</h3>
+     
+     <p>Use the Chrome Development Kit to look at the styles of the above heading. Styles are defined in 4 locations: </p>
+
+     <ol>
+       <li>An inline style that defines and overrides the color of the text 
+       <li>An embedded style that attempts to override the text color and 
+           defines a left margin.
+       <li>An external style that attempts to override both of the above
+           and adds an underline
+     </ol>
+
+    <p class=Main>Another use of the Main styling</p>
+  </body>
+</html>
